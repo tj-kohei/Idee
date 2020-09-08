@@ -1,36 +1,46 @@
-class User < ApplicationRecord
+class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  attr_accessor :login
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :authentication_keys => [:login]
+         :recoverable, :rememberable, :trackable,
+         :validatable,:authentication_keys => [:login]
 
-         has_one :profile
-         has_many :ideas
-         has_many :reviews
-         before_create :build_default_profile
+  #association
+  #profileとの1:1ヒモ付
+  has_one :profile
+  has_many :ideas
+  has_many :reviews
 
-         validates :username,
-         uniqueness: {case_sensitive: :false},
-         length: {minimun: 4, maximum: 31},format: { with: /\A[a-zA-Z0-9_-]+\z/, message: "ユーザー名は半角英数字です"}
+  before_create :build_default_profile
 
-         acts_as_paranoid
-         def self.included(base)
-          base.extend ClassMethods
-          assert_validations_api!(base)
+  #validation
+  validates :username,
+  uniqueness: { case_sensitive: :false },
+  length: { minimum: 4, maximum: 31 },format: { with: /\A[a-zA-Z0-9_-]+\z/, message: "ユーザー名は半角英数字です"}
 
-          base.class_eval do
-            validates_presence_of   :email, if: :email_required?
+  #論理削除
+  acts_as_paranoid
+  # 削除済のユーザーと同じemailを登録するとユニーク制約でエラーになるため
+  # オーバライドをすることでユニーク制約だけを削除する
+  def self.included(base)
+    base.extend ClassMethods
+    assert_validations_api!(base)
 
-            validates_format_of     :email, with: email_regexp, allow_blank: true, if: :email_changed?
+    base.class_eval do
+      validates_presence_of   :email, if: :email_required?
+      # validates_uniqueness_of :email, allow_blank: true, if: :email_changed?
+      validates_format_of     :email, with: email_regexp, allow_blank: true, if: :email_changed?
 
       validates_presence_of     :password, if: :password_required?
       validates_confirmation_of :password, if: :password_required?
       validates_length_of       :password, within: password_length, allow_blank: true
     end
   end
- 
+  # サーバーが高負荷時などに、ユーザーが2度押したことで同じ値がDBに登録されてしまうのを防止
   validates :email, uniqueness_without_deleted: true
 
+  # usernamteまたはメールアドレスでログインできるように認証条件を書き換え
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -40,15 +50,16 @@ class User < ApplicationRecord
     end
   end
 
-
+  #uniqueness_without_deleted: true を追加したためユニークチェックが余分にかかってしまうため阻止
   def email_changed?
     false
   end
 
-
+  #Sign_up時に、userテーブルと紐付けたprofilesテーブルのデータを生成する
   private
   def build_default_profile
        build_profile
        true
   end
+
 end

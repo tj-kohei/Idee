@@ -88,6 +88,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.9.0)
     ffi (1.13.1)
     globalid (0.4.2)
@@ -134,6 +136,10 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    paranoia (2.4.2)
+      activerecord (>= 4.0, < 6.1)
+    paranoia_uniqueness_validator (3.2.0)
+      activerecord (>= 5.1.0, < 6.1)
     public_suffix (4.0.6)
     puma (3.12.6)
     rack (2.2.3)
@@ -243,10 +249,13 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
+  enum_help
   jbuilder (~> 2.7)
   kaminari
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4)
+  paranoia
+  paranoia_uniqueness_validator
   puma (~> 3.11)
   rails (~> 6.0.0)
   sass-rails (~> 5)
