@@ -58,3 +58,4 @@ gem 'paranoia'
 gem 'paranoia_uniqueness_validator'
 gem 'enum_help'
 gem "carrierwave"
+gem 'rmagick'
