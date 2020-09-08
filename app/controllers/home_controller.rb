@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @ideas = Ideas.includes(:user).order("created_at DESC")
+    @ideas = Ideas.joins(:user).order("created_at DESC").includes([user: :profile]).page(params[:page]).per(6)
   end
 
 end
