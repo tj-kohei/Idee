@@ -1,24 +1,47 @@
 # README
+# DEMO
+ 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ 
+# Features
+ 
+comming soon...
+ 
+# Requirement
+ 
 
-Things you may want to cover:
+ 
+* kaminari
+* devise
+* paranoia
+* paranoia_uniqueness_validator
+* enum_help
+* rmagick
+ 
+# Installation
+## how to install Installation
+ 
+```bash
+bundle install
+```
+ 
+# Usage
+ 
 
-* Ruby version
+ 
+```bash
+git https://github.com/tj-kohei/Idee
+```
 
-* System dependencies
+ Deploy coming soon...
+# Note
+ 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ 
+# Author
+ 
+ 
+* tj-kohei
+ 
+# License
+"Idee"is　parsonal app
