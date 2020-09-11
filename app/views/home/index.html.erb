@@ -1,39 +1,78 @@
-<%= render "shared/header" %>
-<div class='main'>
+<% assign_meta_tags title: 'ホーム' %>
+<div class="container">
+  <div class="row home">
+    <div class="col-md-12">
+      <div class="row" style="margin-bottom:30px;">
+        <div class="col-md-12">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
 
-  <div class='title-contents'>
-    <h2 class='service-title'>
-      さあ、アイデアをシェアしよう
-    </h2>
-    <p class='service-explain'>
-      Ideeは、皆さんが持っているアイデアをユーザー同士で共有しあう
-    </p>
-    <p class='service-explain'>
-      チャットスペースです
-    </p>
-  </div>
-  <div class='item-contents'>
-    <h2 class='title'>アイデア一覧</h2>
-    <%= link_to 'アイデア', "#", class: "subtitle" %>
-    <ul class='idea-lists'>
+            <% @slides.each.with_index(0) do |slide, i| %>
+              <% if i == 0 %>
+                  <div class="item active">
+                    <%= link_to idea_path(slide.id) do %>
+                      <%= simple_format(slide.title, class:"slide-heading") %>
+                      <%= image_tag(image_url(slide.figure.url), class:"slide-figure", alt:"First slide") %>
+                    <% end %>
+                  </div>
+              <% elsif i == 1 %>
+                <div class="item">
+                  <%= link_to idea_path(slide.id) do %>
+                     <%= simple_format(slide.title, class:"slide-heading") %>
+                     <%= image_tag(image_url(slide.figure.url), class:"slide-figure", alt:"Second slide") %>
+                  <% end %>
+                </div>
+              <% elsif i == 2 %>
+                <div class="item">
+                  <%= link_to idea_path(slide.id) do %>
+                     <%= simple_format(slide.title, class:"slide-heading") %>
+                     <%= image_tag(image_url(slide.figure.url), class:"slide-figure", alt:"Third slide") %>
+                  <% end %>
+                </div>
+              <% elsif i == 3 %>
+                <div class="item">
+                  <%= link_to idea_path(slide.id) do %>
+                     <%= simple_format(slide.title, class:"slide-heading") %>
+                     <%= image_tag(image_url(slide.figure.url), class:"slide-figure", alt:"Fourth slide") %>
+                  <% end %>
+                </div>
+              <% else %>
+                  <div class="item">
+                    <%= link_to idea_path(slide.id) do %>
+                      <%= simple_format(slide.title, class:"slide-heading") %>
+                      <%= image_tag(image_url(slide.figure.url), class:"slide-figure", alt:"Fifth slide") %>
+                    <% end %>
+                  </div>
+              <% end %>
+            <% end %>
 
-      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-      <% @ideas.each do |idea|%>
-      <li class='list'>
-        <%= link_to idea_path(idea)do %>
-         <div class='idea-img-content'>
-          <%= image_tag idea.image, class: "idea-img" %>
-          
-
+            </div>
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </div>
         </div>
-        <div class='idea-info'>
-          <h3 class='idea-name'>
-            <%= idea.idea_name %>
-          </h3>
-        </div>
+      </div>
+
+      <div class="row">
+        <% @ideas.each do |idea| %>
+          <%= render partial: "common/idea", locals: { idea: idea } %>
         <% end %>
-      </li>
-      <% end %>
-    </ul>
+      </div>
+
+      <div class="kaminari">
+        <%= paginate(@ideas) %>
+      </div>
+    </div>
   </div>
 </div>
