@@ -11,17 +11,5 @@ class Idea < ApplicationRecord
 
   enum category:{web: 1, mobile: 2, desk_top: 3}
 
-  def self.inherited(klass)
-    klass.class_eval do
-      def self.categories_i18n
-        categories_i18n
-    end
-
-    def category_i18n
-      category_i18n[category]
-    end
-  end
-
-  super
-end
+  
 end
