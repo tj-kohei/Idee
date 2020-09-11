@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <div class='main'>
 
-<div class='title-contents'>
+  <div class='title-contents'>
     <h2 class='service-title'>
       さあ、アイデアをシェアしよう
     </h2>
@@ -11,5 +11,29 @@
     <p class='service-explain'>
       チャットスペースです
     </p>
+  </div>
+  <div class='item-contents'>
+    <h2 class='title'>アイデア一覧</h2>
+    <%= link_to 'アイデア', "#", class: "subtitle" %>
+    <ul class='idea-lists'>
+
+      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+      <% @ideas.each do |idea|%>
+      <li class='list'>
+        <%= link_to idea_path(idea)do %>
+         <div class='idea-img-content'>
+          <%= image_tag idea.image, class: "idea-img" %>
+          
+
+        </div>
+        <div class='idea-info'>
+          <h3 class='idea-name'>
+            <%= idea.idea_name %>
+          </h3>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
   </div>
 </div>
