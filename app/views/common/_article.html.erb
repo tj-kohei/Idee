@@ -7,7 +7,7 @@
       <h3>
         <%= link_to idea.title, idea_path(idea.id), class:"text-abbreviation" %>
       </h3>
-      <div class="article-meta">
+      <div class="idea-meta">
         <%= simple_format(add_glyphicon_to_category(idea)) %>
         <%= simple_format(idea.detail, class:"text-abbreviation") %>
         投稿者:<%= link_to idea.user.profile.nickname_to_username, profile_path(idea.user.profile.id), class:"text-abbreviation" %>
