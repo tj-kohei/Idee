@@ -1,0 +1,38 @@
+<% assign_meta_tags title: "#{@profile.nickname_to_username}" %>
+<div class="container">
+    <div class="profile-show">
+        <header class="profile-header">
+            <div class="media">
+                <div class="media-left">
+                    <%= image_tag(image_url(@profile.avatar.url), class:"profile_avatar") %>
+                </div>
+                <div class="media-body">
+                    <div class="introduction">
+                        <h2>
+                            <%= @profile.nickname_to_username %>
+                            <h4><%= @profile.username? %></h4>
+                            <h3><%= simple_format(@profile.introduction) %></h3>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 >投稿したアイデア</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <% @articles.each do |idea| %>
+              <%= render partial: "common/idea", locals: { idea: idea } %>
+            <% end %>
+        </div>
+    </div>
+    <div class="kaminari">
+        <%= paginate(@ideas) %>
+    </div>
+</div>
