@@ -1,0 +1,74 @@
+<% assign_meta_tags title: "#{@idea.title} " %>
+<div class="container">
+    <div class="idea">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="media">
+                    <h1><%= @idea.title %></h1>
+                    <div class="media-body">
+                        <p class="lead">
+                            投稿者:<%= link_to "#{@idea.user.profile.nickname_to_username}", profile_path(@idea.user.profile.id) %>
+                        </p>
+                    </div>
+                </div>
+                <hr>
+
+                <p class="glyphicon glyphicon-time" >投稿日:<%= l @idea.created_at, format: :default %></p>
+                <p class="glyphicon glyphicon-time" >最終更新日:<%= l @idea.updated_at, format: :default %></p>
+                <% if current_user?(@idea.user_id) %>
+                  <%= link_to '編集', edit_idea_path(@article.id), class:"glyphicon glyphicon-edit" %>
+                  <%= link_to '削除', ieda_path, class:"glyphicon glyphicon-trash text-danger", method: :delete, data: { confirm: 'この投稿を削除してもよろしいですか？' } %>
+                <% end %>
+                <hr>
+
+                <%= image_tag(image_url(@idea.figure.url), class:"img-responsive responsive-overwrite idea-figure") %>
+                <hr>
+
+                <p class="lead">開発するアプリケーション<%= simple_format(add_glyphicon_to_category(@idea)) %></p>
+                <hr>
+
+                <p class="lead">サービス内容<%= simple_format(@idea.detail) %></p>
+                <hr>
+
+                <p class="lead">このサービスをやろうとおもったきっかけ<%= simple_format(@idea.cue) %></p>
+                <hr>
+
+                <p class="lead">実装したい重要な機能<%= simple_format(@idea.feature) %></p>
+                <hr>
+
+                <p class="lead">重点的に力をいれてみたいポイント<%= simple_format(@idea.point) %></p>
+                <hr>
+
+                <p class="lead">備考欄<%= simple_format(@idea.remark) %></p>
+                <hr>
+
+                <h4>コメント:</h4>
+                <div class="media">
+                    <div class="media-body">
+                        <div class="comments">
+                          <% if @reviews %>
+                            <div id="reviews">
+                              <%= render @reviews %>
+                            </div>
+                          <% end %>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="well">
+                    <% if current_user %>
+                        <div class="form-group">
+                            <h4>コメントフォーム:</h4>
+                            <%= form_for [@idea, @review], remote: true do |f| %>
+                                <%= f.text_area :comment, class: 'form-control', size: "100x5", id: "review_field", required: true %><br />
+                                <%= f.submit "投稿する", class: "btn btn-primary withripple", data: {disable_with: 'Sending...'} %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

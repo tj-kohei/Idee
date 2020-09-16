@@ -4,7 +4,7 @@ class IdeasController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   def show
     @review = Review.new
-    @reviews = @article.reviews.joins(:user).includes(:user)
+    @reviews = @idea.reviews.joins(:user).includes(:user)
   end
 
   def new
