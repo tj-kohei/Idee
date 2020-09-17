@@ -1,15 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang='ja'>
   <head>
-    <title>Idee</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <script src="https://use.fontawesome.com/e4b9f37dad.js"></script>
+    <%= show_meta_tags %>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= favicon_link_tag 'favicon.ico' %>
   </head>
 
-  <body>
+  <!-- bodyタグのclass属性にコントローラ名をつける -->
+  <body class='<%= "#{controller.controller_name}" %>'>
+
+    <!-- ヘッダーを表示 -->
+    <%= render partial: 'common/header' %>
+
+    <!-- サインインしている場合のみフラッシュメッセージ表示 -->
+    <% if user_signed_in? %>
+      <!-- フラッシュメッセージを表示後にフェードアウトする -->
+      <div id="fade-out">
+          <!-- フラッシュメッセージを表示 -->
+          <% flash_messages%>
+      </div>
+    <% end %>
+    <!-- 各Viewを読み込む -->
     <%= yield %>
+
+    <footer class="sign-up-footer section-danger" id="footer">
+        <div class="container">
+            <div class="row">
+                <p class="text-center">© 2020 Idee, All rights received.</p>
+            </div>
+        </div>
+    </footer>
   </body>
 </html>
