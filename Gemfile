@@ -51,6 +51,12 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'yard'
+gem 'pry-rails'
+gem 'pry-byebug'
+gem 'jquery-turbolinks'
+gem 'bootstrap-sass'
+gem 'therubyracer'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'kaminari'
 gem 'devise'
