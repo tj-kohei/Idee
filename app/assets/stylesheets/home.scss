@@ -1,3 +1,84 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.home {
+   .thumbnail{
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border 0.2s ease-in-out;
+    -o-transition: border 0.2s ease-in-out;
+    transition: border 0.2s ease-in-out;
+   }
+
+  .carousel-control, .item{
+      border-radius: 4px;
+  }
+
+  .idea-thumbnail {
+      height: 195px;
+      width: 262.5px;
+  }
+
+  .slide-figure {
+      width: 100%;
+      height: 448px !important;
+      background: cover;
+      margin: 0 auto;
+  }
+  .slide-heading{
+    width:    100%;
+    font-size:  20px;
+    text-align: center;
+    bottom:   4px;
+    margin:   0;
+    padding:  0;
+    color:    #fff;
+    background: rgba(0,0,0,0.4); 
+    position: absolute; 
+  }
+
+  .idea-content {
+    .thumbnail {
+      display: block;
+      margin-bottom: 20px;
+      line-height: 1.42857143;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      -webkit-transition: border 0.2s ease-in-out;
+      -o-transition: border 0.2s ease-in-out;
+      transition: border 0.2s ease-in-out;
+      border-radius: 0 ;
+      padding: 0 ;
+      background: cover;
+      border: 0px;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .idea-meta {
+      overflow: hidden;
+      font-size: 1.2rem;
+      padding: 10px 0;
+
+      .idea-user {
+        float: left;
+        p {
+          font-size: 16px;
+        }
+      }
+
+      .idea-posted {
+        float: left;
+      }
+    }
+  }
+
+}

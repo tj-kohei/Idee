@@ -1,0 +1,201 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.registrations {
+  padding-top: 0px;
+  .registrations-new {
+    .row {
+      padding-top: 100px;
+    }
+    .jumbotron-sign-up {
+
+    background: image-url("sign_up_form.jpg");
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
+    height: auto;
+    margin-bottom: 0 !important;
+    padding-bottom: 128px !important;
+
+      .sign-up-home {
+        margin-top: 80px;
+        margin-bottom: 40px;
+
+        h1 {
+          color: #ffffff !important;
+          margin-bottom: 40px;
+        }
+
+        p {
+          margin-bottom: 5px;
+          color: #ffffff;
+        }
+      }
+    }
+
+    .sign-up-nav {
+      margin-bottom: 0px !important;
+    }
+
+    .signup-introduction {
+      color: #ffffff;
+      background-color: #d9534f;
+      background-size: cover;
+      height: auto;
+      margin-bottom: 0 !important;
+
+    .summary {
+          margin-top: 50px;
+      h1 {
+        text-align: center;
+      }
+      .phrase {
+        margin: 50px auto;
+        text-align: center;
+        font-weight: 600;
+      }
+      .explain {
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+
+    @media all and (max-width: 1024px) {
+     .summary {
+       margin-top: 0px;
+     }
+    }
+
+      p {
+        font-size: 16px;
+      }
+
+     .col-md-6 {
+        margin-bottom: 50px;
+        .img-responsive {
+          margin-bottom: 50px;
+        }
+      }
+
+    }
+
+    .sign-up-feature {
+      height: auto;
+      background-color: #ffffff;
+      background-size: cover;
+      padding-bottom: 84px ;
+
+      p {
+        font-size: 16px;
+      }
+
+      .row {
+        padding-top: 50px;
+
+        .col-md-4 {
+          .text-left {
+            margin-bottom: 50px;
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+
+    .sign-up-target {
+      height: auto;
+      background-color : #f7f7f9;
+      padding-bottom: 84px ;
+
+      p {
+        font-size: 16px;
+      }
+
+      .row {
+        padding-top: 50px;
+
+        .col-md-4 {
+          .text-left {
+            margin-bottom: 50px;
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+
+    .jumbotron-get-it-now {
+
+      margin-bottom: 0 !important;
+      .col-md-12 {
+      padding-top: 185px;
+      padding-bottom: 185px;
+        p {
+          margin-top: 20px;
+        }
+        .btn-primary {
+          padding: 20px 30px;
+        }
+      }
+    }
+
+
+  }
+}
+
+
+.jumbotron-get-it-now {
+  background: image-url("get_it_now.jpg");
+  background-size: cover;
+  height: auto;
+}
+
+
+  .glyphicon { margin-right:10px; }
+  .panel-body { padding:0px; }
+  .panel-body table tr td { padding-left: 15px }
+  .panel-body .table {margin-bottom: 0px; }
+
+
+  .signin-signup-panel {
+  opacity: 0.9;
+  margin-top:30px;
+  }
+  .form-group.last { margin-bottom:0px; }
+
+
+.registrations-h1{
+  color:  #FFFFFF;
+}
+
+.registrations-h2{
+  color:  #FFFFFF;
+}
+
+.sessions-h1{
+  color:  #FFFFFF;
+}
+.sessions-h2{
+  color:  #FFFFFF;
+}
+
+.sign-in-up-btn{
+  margin-top: 10px;
+  width: 100%;
+  font-size: 14px !important;
+}
+
+.sign-in-up-form_item{
+  margin-bottom: 10px
+}
+
+.sign_up_logo {
+  width: 300px;
+  small {
+    margin-left: 85px;
+  }
+}
+
+.registrations-edit {
+  padding-top: 70px;
+}

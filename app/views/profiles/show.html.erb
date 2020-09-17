@@ -17,15 +17,12 @@
                 </div>
             </div>
         </header>
-
         <hr>
-
         <div class="row">
             <div class="col-lg-12">
                 <h3 >投稿したアイデア</h3>
             </div>
         </div>
-
         <div class="row">
             <% @ideas.each do |idea| %>
               <%= render partial: "common/idea", locals: { idea: idea } %>
