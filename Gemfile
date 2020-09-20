@@ -63,10 +63,12 @@ gem 'devise'
 gem 'paranoia'
 gem 'paranoia_uniqueness_validator'
 gem 'enum_help'
-gem "carrierwave"
 gem 'rmagick'
-gem 'fog'
 gem 'meta-tags'
 gem 'rb-readline'
 gem 'newrelic_rpm'
 gem 'rake'
+
+group :production do
+  gem 'rails_12factor'
+end

@@ -1,6 +1,6 @@
 <% assign_meta_tags title: '新規アイデア投稿' %>
 <div class="container">
-  <div class="row article-new">
+  <div class="row idea-new">
     <div class="col-xs-8 col-xs-offset-2">
       <div class="form-area">
         <br style="clear:both">
@@ -18,7 +18,7 @@
 
           イメージ画像(モックアップ、設計図など)<small>画像部分をクリック、または画像をドラックアンドドロップしてください</small>
           <div class="cover-image-upload" id="js-main-image">
-            <img class="image-preview-article"/>
+            <img class="image-preview-idea"/>
             <%= f.file_field :figure %>
             <%= f.hidden_field :status, value: "main" %>
           </div>

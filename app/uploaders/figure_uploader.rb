@@ -43,7 +43,7 @@ class FigureUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "default_article.png"
+    "default_idea.png"
   end
 
   # Override the filename of the uploaded files:

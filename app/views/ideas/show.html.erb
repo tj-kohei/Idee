@@ -17,7 +17,7 @@
                 <p class="glyphicon glyphicon-time" >投稿日:<%= l @idea.created_at, format: :default %></p>
                 <p class="glyphicon glyphicon-time" >最終更新日:<%= l @idea.updated_at, format: :default %></p>
                 <% if current_user?(@idea.user_id) %>
-                  <%= link_to '編集', edit_idea_path(@article.id), class:"glyphicon glyphicon-edit" %>
+                  <%= link_to '編集', edit_idea_path(@idea.id), class:"glyphicon glyphicon-edit" %>
                   <%= link_to '削除', ieda_path, class:"glyphicon glyphicon-trash text-danger", method: :delete, data: { confirm: 'この投稿を削除してもよろしいですか？' } %>
                 <% end %>
                 <hr>

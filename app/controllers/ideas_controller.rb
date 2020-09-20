@@ -29,7 +29,7 @@ class IdeasController < ApplicationController
   def update
     @idea.update(idea_params)
     flash[:sucsses] = '更新が完了しました'
-    redirect_to controller: :articles, action: :show
+    redirect_to controller: :ideas, action: :show
       else
         render :edit
     end
