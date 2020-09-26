@@ -56,6 +56,7 @@ gem 'pry-rails'
 gem 'pry-byebug'
 gem 'jquery-turbolinks'
 gem 'bootstrap-sass'
+gem 'jquery-rails'
 gem 'mini_racer'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'kaminari'
