@@ -29,8 +29,10 @@ controllerなどはかなりシンプルな出来であるが、コメントア�
 
 
 # 開発環境
-- VScode
-- 
+- サーバーサイド: Ruby,Ruby on Rails
+- フロントサイド: HTML,CSS,Sass,BootStrap,JavaScript,JQery
+- バージョン管理: Git Github
+- インフラ: Heroku,MySQL
 
 # 課題や今後実装したい機能
 Herokuで扱う画像ファイルは一定時間で消えてしまうので、AWSを導入してアップロードした画像を保存されるように実装したい。
